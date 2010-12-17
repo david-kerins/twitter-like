@@ -1,7 +1,0 @@
-0000000000000000000000000000000000000000 5a8a1889370ab656f4084d554752cfc1a57c05b8 David Kerins <dkerins@bitbox.ca> 1292216873 -0800	commit (initial): Initial Commit
-5a8a1889370ab656f4084d554752cfc1a57c05b8 34469c05e93548d2469b97ab23540ecf0acb586b David Kerins <dkerins@bitbox.ca> 1292217114 -0800	commit: Modify README
-34469c05e93548d2469b97ab23540ecf0acb586b 68978789937666d7e21a5f771ea95e96e35eaede David Kerins <dkerins@bitbox.ca> 1292217125 -0800	commit: Modify README
-68978789937666d7e21a5f771ea95e96e35eaede ca9618742b498982dc75243e3ca2f8e073214b76 David Kerins <dkerins@bitbox.ca> 1292274509 -0800	merge static-pages: Fast-forward
-ca9618742b498982dc75243e3ca2f8e073214b76 3d183c38bf43b46d081453965848b17d0561873a David Kerins <dkerins@bitbox.ca> 1292300553 -0800	commit: Stylesheets and Help Page
-3d183c38bf43b46d081453965848b17d0561873a 812928a79599e3de2ec77e2dba4501085c93e2f4 David Kerins <dkerins@bitbox.ca> 1292306466 -0800	merge filling-in-layout: Fast-forward
-812928a79599e3de2ec77e2dba4501085c93e2f4 8ef0d8e940072e83de51d611b24207ad1f0c407b David Kerins <dkerins@bitbox.ca> 1292336432 -0800	commit: Layout partials and tests.

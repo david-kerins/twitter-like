@@ -1,3 +1,0 @@
-0000000000000000000000000000000000000000 3d183c38bf43b46d081453965848b17d0561873a David Kerins <dkerins@bitbox.ca> 1292300634 -0800	branch: Created from HEAD
-3d183c38bf43b46d081453965848b17d0561873a e93d9fc160a879b14a9c13fd7608bddfbeedb313 David Kerins <dkerins@bitbox.ca> 1292304059 -0800	commit: Removed default Rails page
-e93d9fc160a879b14a9c13fd7608bddfbeedb313 812928a79599e3de2ec77e2dba4501085c93e2f4 David Kerins <dkerins@bitbox.ca> 1292306450 -0800	commit: Finished layout and routes
