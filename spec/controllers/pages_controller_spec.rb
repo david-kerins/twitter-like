@@ -4,7 +4,7 @@ require 'spec_helper'
 describe PagesController do
     render_views
     before(:each) do
-      @base_title = "Ruby on Rails Twitter-like concept App"
+      @base_title = "Ruby on Rails Twitter-like Concept App"
     end
 
       describe "GET 'home'" do
@@ -55,7 +55,7 @@ describe PagesController do
           get 'help'
           response.should have_selector("title",
                                         :content =>
-          "Ruby on Rails Twitter-like concept App | Help")
+          "Ruby on Rails Twitter-like Concept App | Help")
         end
       end
 end
