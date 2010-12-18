@@ -58,5 +58,11 @@ describe PagesController do
           "Ruby on Rails Twitter-like Concept App | Help")
         end
       end
+      describe "GET 'news'" do
+        it "should be successful" do
+          get 'news'
+          response.should be_success
+        end
+      end
 end
 
