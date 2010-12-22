@@ -8,5 +8,5 @@
 #
 #
 User.delete_all
-user = User.create([{ :name => "David Kerins", :email => "dkerins@bitbox.ca", :password => "barrios", :password_confirmation => "barrios", :admin => true }])
-user.toggle!(:admin)
+@user = User.create([{ :name => "David Kerins", :email => "dkerins@bitbox.ca", :password => "barrios", :password_confirmation => "barrios", :admin => true }])
+@user.toggle!(:admin)
