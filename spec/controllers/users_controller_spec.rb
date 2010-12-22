@@ -59,6 +59,42 @@ describe UsersController do
                                            :content => "Next")
       end
     end
+    #DDK working on the three below
+    describe "as a non-admin user" do
+      before(:each) do
+        @user = test_sign_in(Factory(:user))
+        @users = [@user]
+        30.times do
+          @users << Factory(:user, :email => Factory.next(:email))
+        end
+      end
+      it "should not show the delete links" do
+        get :index
+        @users.each do |user|
+          response.should_not have_selector("a", :href => "/users/1", :content => "delete")
+        end
+      end
+    end
+
+    describe "as an admin user" do
+
+      before(:each) do
+        admin = Factory(:user, :email => "admin@example.com", :admin => true)
+        @user = test_sign_in(admin)
+        @users = [@user]
+        30.times do
+          @users << Factory(:user, :email => Factory.next(:email))
+        end
+      end
+
+      it "should show the delete links for each user" do
+        get :index
+        @users.each do |user|
+          response.should have_selector("a", :href => "/users/1", :content => "delete")
+        end
+        #response.should redirect_to(users_path)
+      end
+    end
   end
 
   describe "GET 'show'" do
@@ -318,8 +354,14 @@ describe UsersController do
     describe "as an admin user" do
 
       before(:each) do
-        admin = Factory(:user, :email => "admin@example.com", :admin => true)
-        test_sign_in(admin)
+        @admin = Factory(:user, :email => "admin@example.com", :admin => true)
+        test_sign_in(@admin)
+      end
+
+      it "should not destroy the admin user" do
+        lambda do
+          delete :destroy, :id => @admin
+        end.should_not change(User, :count).by(-1)
       end
 
       it "should destroy the user" do
