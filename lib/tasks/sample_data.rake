@@ -10,7 +10,9 @@ namespace :db do
                  :password => "barrios",
                  :password_confirmation => "barrios")
     admin.toggle!(:admin)
-    admin.microposts.create!(:content => Faker::Lorem.sentence(5))
+    20.times do
+      admin.microposts.create!(:content => Faker::Lorem.sentence(5))
+    end
 
     99.times do |n|
       name  = Faker::Name.name
