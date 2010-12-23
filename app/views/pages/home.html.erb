@@ -1,7 +1,24 @@
-    <h1>Twitter-like App</h1>
-    <p>
+<% if signed_in? %>
+  <table class="front" summary="For signed-in users">
+    <tr>
+      <td class="main">
+        <h1 class="micropost">What's up?</h1>
+        <%= render 'shared/micropost_form' %>
+        <%= render 'shared/feed' %>
+      </td>
+      <td class="sidebar round">
+        <%= render 'shared/user_info' %>
+      </td>
+    </tr>
+  </table>
+<% else %>
+  <h1>Twitter-like App</h1>
+
+  <p>
     This is the home page for the
     <%= link_to "Twitter on Ruby on Rails", root_path %>
     is a project to make a Twitter-like concept app.
-    </p>
-    <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+  </p>
+
+  <%= link_to "Sign up now!", signup_path, :class => "signup_button round" %>
+<% end %>
