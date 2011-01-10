@@ -3,30 +3,44 @@ require 'faker'
 namespace :db do
   desc "Fill database with sample data"
   task :populate => :environment do
-    #Rake::Task['db:reset'].invoke
-    User.delete_all
-    admin = User.create!(:name => "David Kerins",
-                 :email => "dkerins@bitbox.ca",
-                 :password => "barrios",
-                 :password_confirmation => "barrios")
-    admin.toggle!(:admin)
-    20.times do
-      admin.microposts.create!(:content => Faker::Lorem.sentence(5))
-    end
+    Rake::Task['db:reset'].invoke
+    make_users
+    make_microposts
+    make_relationships
+  end
+end
 
-    99.times do |n|
-      name  = Faker::Name.name
-      email = "example-#{n+1}@bitbox.ca"
-      password  = "foobar1"
-      User.create!(:name => name,
-                   :email => email,
-                   :password => password,
-                   :password_confirmation => password)
-    end
-    User.all(:limit => 6).each do |user|
-      50.times do
-        user.microposts.create!(:content => Faker::Lorem.sentence(5))
-      end
+def make_users
+  admin = User.create!(:name => "Example User",
+                       :email => "example@bitbox.ca",
+                       :password => "foobar",
+                       :password_confirmation => "foobar")
+  admin.toggle!(:admin)
+  99.times do |n|
+    name  = Faker::Name.name
+    email = "example-#{n+1}@bitbox.ca"
+    password  = "password"
+    User.create!(:name => name,
+                 :email => email,
+                 :password => password,
+                 :password_confirmation => password)
+  end
+end
+
+def make_microposts
+  User.all(:limit => 6).each do |user|
+    50.times do
+      content = Faker::Lorem.sentence(5)
+      user.microposts.create!(:content => content)
     end
   end
+end
+
+def make_relationships
+  users = User.all
+  user  = users.first
+  following = users[1..50]
+  followers = users[3..40]
+  following.each { |followed| user.follow!(followed) }
+  followers.each { |follower| follower.follow!(user) }
 end
